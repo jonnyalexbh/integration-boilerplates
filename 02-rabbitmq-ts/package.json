@@ -4,13 +4,17 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start:consumer": "ts-node src/consumer.ts",
-    "start:producer": "ts-node src/producer.ts"
+    "start:consumer": "ts-node src/send-to-queue/consumer.ts",
+    "start:producer": "ts-node src/send-to-queue/producer.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+    "dependencies": {
+    "amqplib": "^0.10.8"
+  },
   "devDependencies": {
+    "@types/amqplib": "^0.10.7",
     "@types/node": "^24.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
