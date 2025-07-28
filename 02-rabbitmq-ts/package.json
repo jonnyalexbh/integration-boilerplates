@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start:consumer": "ts-node src/send-to-queue/consumer.ts",
-    "start:producer": "ts-node src/send-to-queue/producer.ts"
+    "start:consumer:send:queue": "ts-node src/send-to-queue/consumer.ts",
+    "start:producer:send:queue": "ts-node src/send-to-queue/producer.ts",
+    "start:producer:default:exchange": "ts-node src/default-exchange/producer.ts",
+    "start:consumer:default:exchange": "ts-node src/default-exchange/consumer.ts"
   },
   "keywords": [],
   "author": "",

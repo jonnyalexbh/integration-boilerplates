@@ -1,7 +1,7 @@
 import amqp from 'amqplib';
 import { QUEUE_NAME, CONNECTION_STRING } from '../constants';
 
-const message = { text: 'Hello from the producer, send-to-queue' };
+const message = { text: 'Hello from the producer, default-exchange' };
 
 async function produce() {
   try {
@@ -9,17 +9,18 @@ async function produce() {
     const channel = await connection.createChannel();
 
     await channel.assertQueue(QUEUE_NAME, { durable: true });
+    const defaultExchange = '';
 
-    channel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(message)));
+    channel.publish(defaultExchange, QUEUE_NAME, Buffer.from(JSON.stringify(message)));
 
-    console.log(`✅ Message sent to "${QUEUE_NAME}":`, message);
+    console.log(`✅ Message sent to "${QUEUE_NAME}" via default exchange:`, message);
 
     setTimeout(() => {
       console.warn('closing channel & connection');
       channel.close();
       connection.close();
     }, 500);
-  
+
   } catch (err) {
     console.error('❌ Producer error:', err);
   }
