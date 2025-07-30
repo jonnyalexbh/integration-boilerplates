@@ -9,7 +9,10 @@
     "start:producer:default:exchange": "ts-node src/default-exchange/producer.ts",
     "start:consumer:default:exchange": "ts-node src/default-exchange/consumer.ts",
     "start:producer:direct:exchange": "ts-node src/01-direct/producer.ts",
-    "start:consumer:direct:exchange": "ts-node src/01-direct/consumer.ts"
+    "start:consumer:direct:exchange": "ts-node src/01-direct/consumer.ts",
+    "start:producer:topic:exchange": "ts-node src/02-topic/producer.ts",
+    "start:consumer:topic:exchange": "ts-node src/02-topic/consumer.ts",
+    "start:consumer2:topic:exchange": "ts-node src/02-topic/consumer2.ts"
   },
   "keywords": [],
   "author": "",
