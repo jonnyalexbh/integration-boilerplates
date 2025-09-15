@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "start:dev": "nodemon app.js"
+    "build": "tsc",
+    "start": "tsc && node dist/app.js",
+    "dev": "ts-node src/app.ts",
+    "dev:watch": "nodemon --exec ts-node src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,10 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.4.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
