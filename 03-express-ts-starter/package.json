@@ -1,25 +1,38 @@
 {
   "name": "03-express-ts-starter",
   "version": "1.0.0",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "build": "tsc",
     "start": "tsc && node dist/server.js",
     "dev": "ts-node src/server.ts",
-    "dev:watch": "nodemon --exec ts-node src/server.ts"
+    "dev:watch": "nodemon --exec ts-node src/server.ts",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "joi": "^18.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@types/express": "^5.0.3",
     "@types/node": "^24.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }

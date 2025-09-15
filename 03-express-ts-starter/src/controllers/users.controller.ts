@@ -7,21 +7,21 @@ const USERS = [
 
 export const getAllUsers = (req: Request, res: Response) => {
   res.status(200).json(USERS);
-}
+};
 
 export const getUserById = (req: Request, res: Response) => {
-  const user = USERS.find((user) => user.id === parseInt(req.params.id));
+  const user = USERS.find(user => user.id === parseInt(req.params.id));
 
   if (!user) {
     return res.status(404).json({ message: 'User not found' });
   }
 
   res.status(200).json(user);
-}
+};
 
 export const createUser = (req: Request, res: Response) => {
-  res.status(200).json({ message: 'User registered' })
-}
+  res.status(200).json({ message: 'User registered' });
+};
 
 export const updateUser = (req: Request, res: Response) => {
   res.status(200).json({ message: 'User updated' });

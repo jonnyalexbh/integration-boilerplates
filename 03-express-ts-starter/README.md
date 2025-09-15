@@ -12,6 +12,8 @@ A professional boilerplate for REST APIs with Express.js and TypeScript, featuri
 - ✅ **TypeScript** - Static typing for better development experience
 - ✅ **Express.js 5.x** - Fast and minimalist web framework
 - ✅ **Joi Validation** - Robust input data validation
+- ✅ **ESLint 9** - Modern linting with flat config
+- ✅ **Prettier** - Consistent code formatting
 - ✅ **Scalable Structure** - Clear folder and file organization
 - ✅ **Custom Middleware** - Validation and error handling
 - ✅ **Development Scripts** - Hot reload with nodemon
@@ -37,8 +39,13 @@ A professional boilerplate for REST APIs with Express.js and TypeScript, featuri
 │   ├── app.ts                # Express configuration
 │   ├── routes.ts             # Route definitions
 │   └── server.ts             # Server entry point
+├── .vscode/                  # VS Code settings
+│   └── settings.json         # Editor configuration
 ├── dist/                     # Compiled code (generated)
 ├── scripts/                  # Automation scripts
+├── eslint.config.js          # ESLint 9 configuration
+├── .prettierrc               # Prettier configuration
+├── .prettierignore           # Prettier ignore file
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -48,23 +55,26 @@ A professional boilerplate for REST APIs with Express.js and TypeScript, featuri
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation Steps
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd 03-express-ts-starter
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment variables** (optional)
+
    ```bash
    cp .env.example .env
    ```
@@ -76,19 +86,26 @@ A professional boilerplate for REST APIs with Express.js and TypeScript, featuri
 
 ## 🚀 Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Run server in development mode with ts-node |
-| `npm run dev:watch` | Run with nodemon for hot reload |
-| `npm run build` | Compile TypeScript to JavaScript |
-| `npm start` | Compile and run in production |
+| Script              | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `npm run dev`       | Run server in development mode with ts-node |
+| `npm run dev:watch` | Run with nodemon for hot reload             |
+| `npm run build`     | Compile TypeScript to JavaScript            |
+| `npm start`         | Compile and run in production               |
+| `npm run lint`      | Check for linting errors                    |
+| `npm run lint:fix`  | Auto-fix linting errors                     |
+| `npm run format`    | Format code with Prettier                   |
+| `npm run format:check` | Check if code is formatted               |
+| `npm run check`     | Run both lint and format checks             |
 
 ## 📚 API Endpoints
 
 ### Health Check
+
 - **GET** `/health` - Check server status
 
 ### Users
+
 - **GET** `/users` - Get all users
 - **GET** `/users/:id` - Get user by ID
 - **POST** `/users` - Create new user (with validation)
@@ -111,6 +128,7 @@ curl -X POST http://localhost:3000/users \
 ```
 
 ### Success response
+
 ```json
 {
   "message": "User registered"
@@ -118,6 +136,7 @@ curl -X POST http://localhost:3000/users \
 ```
 
 ### Validation error response
+
 ```json
 {
   "message": "Validation error",
@@ -162,16 +181,53 @@ app.post('/products', validateRequest(createProductSchema), createProduct);
 The project uses **Joi** for robust data validation:
 
 ### Available schemas
+
 - **createUserSchema**: Validation for creating users
 - **updateUserSchema**: Validation for updating users
 - **commonSchemas**: Reusable schemas (numeric ID, pagination, etc.)
 
 ### Validation features
+
 - ✅ Data type validation
 - ✅ Custom error messages
 - ✅ Range and format validation
 - ✅ Required and optional fields
 - ✅ Email and password validation
+
+## 🛠️ Code Quality & Development Tools
+
+### ESLint 9 Configuration
+- **Modern flat config** - Uses the new ESLint 9 configuration format
+- **TypeScript support** - Full TypeScript integration with type-aware rules
+- **Prettier integration** - Runs Prettier as an ESLint rule for consistent formatting
+- **Node.js globals** - Properly configured for Node.js environment
+- **Custom rules** - Optimized for Express.js and TypeScript development
+
+### Prettier Configuration
+- **Single quotes** - Consistent string formatting
+- **90 character line width** - Optimal for modern screens
+- **2-space indentation** - Standard JavaScript/TypeScript formatting
+- **Trailing commas** - ES5 compatible trailing comma support
+- **Semicolons** - Consistent statement termination
+
+### VS Code Integration
+- **Format on save** - Automatic code formatting
+- **ESLint auto-fix** - Automatic linting error fixes
+- **TypeScript preferences** - Optimized import paths
+- **File handling** - Consistent line endings and whitespace
+
+### Development Workflow
+```bash
+# Check code quality
+npm run check
+
+# Fix formatting and linting issues
+npm run lint:fix
+npm run format
+
+# Development with hot reload
+npm run dev:watch
+```
 
 ## 🧪 Testing
 
@@ -188,6 +244,7 @@ npm run test:watch
 ### Production
 
 1. **Compile the project**
+
    ```bash
    npm run build
    ```
@@ -212,15 +269,24 @@ CMD ["npm", "start"]
 ## 📦 Dependencies
 
 ### Production
+
 - **express**: Web framework for Node.js
 - **joi**: Schema validation library
 
 ### Development
+
 - **typescript**: TypeScript compiler
 - **@types/express**: Type definitions for Express
 - **@types/node**: Type definitions for Node.js
 - **ts-node**: Run TypeScript directly
 - **nodemon**: Automatic server restart
+- **eslint**: Modern JavaScript/TypeScript linting
+- **@eslint/js**: ESLint JavaScript configurations
+- **@typescript-eslint/eslint-plugin**: TypeScript ESLint plugin
+- **@typescript-eslint/parser**: TypeScript parser for ESLint
+- **prettier**: Code formatter
+- **eslint-config-prettier**: Disables ESLint rules that conflict with Prettier
+- **eslint-plugin-prettier**: Runs Prettier as an ESLint rule
 
 ## 📝 License
 
