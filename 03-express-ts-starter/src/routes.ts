@@ -1,4 +1,4 @@
-import { Application, Request, Response } from 'express';
+import { Application } from 'express';
 import {
   createUser,
   deleteUser,
@@ -8,11 +8,10 @@ import {
 } from './controllers/users.controller';
 import { validateRequest } from './middlewares/validation.middleware';
 import { createUserSchema } from './schemas/user.schema';
+import { healthCheck } from './controllers/health.controller';
 
 const routes = (app: Application) => {
-  app.get('/health', (_: Request, res: Response) =>
-    res.status(200).json({ uptime: process.uptime() })
-  );
+  app.get('/health', healthCheck);
 
   app.get('/users', getAllUsers);
   app.get('/users/:id', getUserById);

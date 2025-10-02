@@ -1,7 +1,6 @@
 {
   "name": "03-express-ts-starter",
   "version": "1.0.0",
-  "type": "module",
   "main": "app.js",
   "scripts": {
     "build": "tsc",

@@ -259,6 +259,7 @@ npm run test:watch
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm ci --only=production
 COPY dist/ ./dist/
@@ -295,3 +296,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 ⭐ **If you like this project, give it a star!** ⭐
+
