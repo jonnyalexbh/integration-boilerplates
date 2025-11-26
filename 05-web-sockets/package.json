@@ -1,0 +1,25 @@
+{
+  "name": "05-web-sockets",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/ws": "^8.18.1",
+    "rimraf": "^6.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
